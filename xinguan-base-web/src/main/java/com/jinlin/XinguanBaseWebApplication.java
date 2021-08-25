@@ -1,12 +1,14 @@
 package com.jinlin;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 
-@SpringBootApplication()
-public class XinGuanApplication {
+@MapperScan("com.jinlin.mapper")
+@SpringBootApplication
+public class XinguanBaseWebApplication {
     public static void main(String[] args) {
-        SpringApplication.run(XinGuanApplication.class,args);
+        SpringApplication.run(XinguanBaseWebApplication.class,args);
     }
 }
