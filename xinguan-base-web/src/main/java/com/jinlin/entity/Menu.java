@@ -3,6 +3,8 @@ package com.jinlin.entity;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
+
+import java.util.Comparator;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
@@ -69,4 +71,18 @@ public class Menu implements Serializable {
     @ApiModelProperty(value = "子菜单")
     @TableField(exist = false)
    private List<Menu> childMenus;
+
+    /**
+     * 根据order排序
+     * @return
+     */
+    public static Comparator<Menu> order(){
+        Comparator<Menu> comparator=(o1, o2) -> {
+            if (o1.getOrderNum() != o2.getOrderNum()){
+                return (int) (o1.getOrderNum() - o2.getOrderNum());
+            }        return 0;
+
+        };
+        return comparator;
+    }
 }
