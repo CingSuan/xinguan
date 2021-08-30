@@ -1,10 +1,13 @@
 package com.jinlin.entity;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.annotation.IdType;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
 import java.io.Serializable;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -63,5 +66,7 @@ public class Menu implements Serializable {
     @ApiModelProperty(value = "0:不展开，1：展开")
     private Integer open;
 
-
+    @ApiModelProperty(value = "子菜单")
+    @TableField(exist = false)
+   private List<Menu> childMenus;
 }
