@@ -30,7 +30,7 @@ jackson:
 
 
 server:
-  port: 8082
+  port: 8888
 
 mybatis-plus:
   configuration:

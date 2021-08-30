@@ -5,8 +5,10 @@ import com.jinlin.entity.Menu;
 import com.jinlin.response.Result;
 
 import com.jinlin.service.MenuService;
+import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -22,6 +24,8 @@ import java.util.List;
  * @author NieChangan
  * @since 2021-08-25
  */
+@Api
+@CrossOrigin
 @RestController
 @RequestMapping("/menu")
 public class MenuController {
@@ -32,6 +36,11 @@ public class MenuController {
     @GetMapping("/getTree")
     public Result tree(){
     List<Menu> menuTree= menuService.buildMenuTree();
+    for (Menu mm:menuTree
+         ) {
+        System.out.println(mm.toString()+12312);
+
+    }
   return Result.ok().data("menuTree",menuTree);
 }
 }

@@ -30,8 +30,6 @@ private  MenuMapper menuMapper;
         String username="admin";
         List<Menu> menuList=menuMapper.getMenuListByUserName(username);
        List<Menu>  menus= MenuTreeBuilder.build(menuList);
-        for (Menu menu: menus) {
-            System.out.println(menu.toString()); }
          return menus;
     }
 }
